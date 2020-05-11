@@ -86,7 +86,7 @@ public class Worker {
             int c_year = cal.get(Calendar.YEAR);
             int c_month = cal.get(Calendar.MONTH);
             if(c_year == year && c_month == month) {
-                sum += baseSalary;
+                sum += c.totalValue();
             }
         }
         return sum;
