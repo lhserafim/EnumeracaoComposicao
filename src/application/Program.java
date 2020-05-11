@@ -32,7 +32,7 @@ public class Program {
         // Instanciar o Departamento como Departament
         Worker worker = new Worker(workerName, WorkLevel.valueOf(workerLevel), baseSalary, new Department(departmentName));
 
-        System.out.println("How many contracts to this worker?");
+        System.out.print("How many contracts to this worker?");
         int n = sc.nextInt();
         for(int i=1;i<=n;i++) {
             System.out.printf("Enter contract #%d data:",i);
@@ -48,17 +48,15 @@ public class Program {
             HourContract contract = new HourContract(contractDate, valuePerHour, hours);
             // Associar horas ao trabalhador. O worker já foi instanciado anteriormente
             worker.addContract(contract);
-
-            System.out.print("Enter month and year to calculate income (MM/YYYY):");
-            // Usando o "SUBSTRING"
-            String monthAndYear = sc.next();
-            int month = Integer.parseInt(monthAndYear.substring(0,2)); // posicao 0 a 2
-            int year = Integer.parseInt(monthAndYear.substring(3)); //de 3 até final
-            System.out.print("Name:" + worker.getName());
-            System.out.print("Department:" + worker.getDepartment().getName()); //Acessar o departamento pelo objeto worker. COMPOSIÇÃO DE OBJETOS
-            System.out.print("Income for " + monthAndYear + ": " + String.format("%.2f",worker.income(month,year)));
-
         }
+        System.out.print("Enter month and year to calculate income (MM/YYYY):");
+        // Usando o "SUBSTRING"
+        String monthAndYear = sc.next();
+        int month = Integer.parseInt(monthAndYear.substring(0,2)); // posicao 0 a 2
+        int year = Integer.parseInt(monthAndYear.substring(3)); //de 3 até final
+        System.out.print("Name: " + worker.getName());
+        System.out.print("Department: " + worker.getDepartment().getName()); //Acessar o departamento pelo objeto worker. COMPOSIÇÃO DE OBJETOS
+        System.out.print("Income for " + monthAndYear + ": " + String.format("%.2f",worker.income(month,year)));
 
         sc.close();
     }
